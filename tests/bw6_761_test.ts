@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: LGPL-3.0+
 
-import * as bw6_761 from '../src/bw6-761'
+import * as bw6_761 from '../src/bw6_761'
 
 
 const fr_minus_2 = Buffer.from(
@@ -38,19 +38,19 @@ const g2_8 = Buffer.from(
   'hex')
 
 
-test('bw6-761-ecadd', () => {
+test('bw6_761_ecadd', () => {
   var output = Buffer.alloc(bw6_761.g1_bytes)
   expect(bw6_761.ecadd(g1_2, g1_4, output)).toBe(true)
   expect(output).toStrictEqual(g1_6)
 })
 
-test('bw6-761-ecmul', () => {
+test('bw6_761_ecmul', () => {
   var output = Buffer.alloc(bw6_761.g1_bytes)
   expect(bw6_761.ecmul(g1_4, fr_minus_2, output)).toBe(true)
   expect(output).toStrictEqual(g1_minus_8)
 })
 
-test('bw6-761-ecpairing', () => {
+test('bw6_761_ecpairing', () => {
   expect(bw6_761.ecpairing([
     g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_8,
   ])).toBe(true)

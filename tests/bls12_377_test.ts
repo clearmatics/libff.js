@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: LGPL-3.0+
 
-import * as bls12_377 from '../src/bls12-377'
+import * as bls12_377 from '../src/bls12_377'
 
 const fr_minus_2 = Buffer.from(
     "12ab655e9a2ca55660b44d1e5c37b00159aa76fed00000010a117fffffffffff",
@@ -37,19 +37,19 @@ const g2_8 = Buffer.from(
     'hex')
 
 
-test('bls12-377-ecadd', () => {
+test('bls12_377_ecadd', () => {
   var output = Buffer.alloc(bls12_377.g1_bytes)
   expect(bls12_377.ecadd(g1_2, g1_4, output)).toBe(true)
   expect(output).toStrictEqual(g1_6)
 })
 
-test('bls12-377-ecmul', () => {
+test('bls12_377_ecmul', () => {
   var output = Buffer.alloc(bls12_377.g1_bytes)
   expect(bls12_377.ecmul(g1_4, fr_minus_2, output)).toBe(true)
   expect(output).toStrictEqual(g1_minus_8)
 })
 
-test('bls12-377-ecpairing', () => {
+test('bls12_377_ecpairing', () => {
   expect(bls12_377.ecpairing([
     g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_8,
   ])).toBe(true)
