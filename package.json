@@ -5,6 +5,7 @@
   "main": "dist/libff.js",
   "scripts": {
     "build": "tsc",
+    "install": "./install_libff.sh",
     "test": "jasmine-ts --config=jasmine.json"
   },
   "author": "",

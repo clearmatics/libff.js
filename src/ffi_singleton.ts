@@ -108,7 +108,7 @@ export class FFI
             // TOOD: try multiple alternatives. libff-ffi should be
             // installed in the dist or bin dir.
             var lib = path.join(
-                __dirname, "..", "depends", "libff", "build", "ffi", "libff-ffi")
+                __dirname, "..", "dist", "libff-ffi")
             // console.log("lib: " + lib)
             this.ffi_functions = <FFIFunctions>
                 ffi.Library(lib, function_declarations)
