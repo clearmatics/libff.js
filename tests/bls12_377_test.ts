@@ -37,24 +37,26 @@ const g2_8 = Buffer.from(
     'hex')
 
 
-test('bls12_377_ecadd', () => {
-  var output = Buffer.alloc(bls12_377.g1_bytes)
-  expect(bls12_377.ecadd(g1_2, g1_4, output)).toBe(true)
-  expect(output).toStrictEqual(g1_6)
-})
+describe('bls12_377', () => {
+    it('ecadd', () => {
+        var output = Buffer.alloc(bls12_377.g1_bytes)
+        expect(bls12_377.ecadd(g1_2, g1_4, output)).toBe(true)
+        expect(output).toEqual(g1_6)
+    })
 
-test('bls12_377_ecmul', () => {
-  var output = Buffer.alloc(bls12_377.g1_bytes)
-  expect(bls12_377.ecmul(g1_4, fr_minus_2, output)).toBe(true)
-  expect(output).toStrictEqual(g1_minus_8)
-})
+    it('ecmul', () => {
+        var output = Buffer.alloc(bls12_377.g1_bytes)
+        expect(bls12_377.ecmul(g1_4, fr_minus_2, output)).toBe(true)
+        expect(output).toEqual(g1_minus_8)
+    })
 
-test('bls12_377_ecpairing', () => {
-  expect(bls12_377.ecpairing([
-    g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_8,
-  ])).toBe(true)
+    it('ecpairing', () => {
+        expect(bls12_377.ecpairing([
+            g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_8,
+        ])).toBe(true)
 
-  expect(bls12_377.ecpairing([
-    g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_4
-  ])).toBe(false)
+        expect(bls12_377.ecpairing([
+            g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_4
+        ])).toBe(false)
+    })
 })

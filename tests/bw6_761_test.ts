@@ -36,25 +36,27 @@ const g2_8 = Buffer.from(
     "0099155657cfbc579c893f9052bc8e431718c6aaf22583ff79d22b3eb30daaa31ea7def53f90c5719c38599490604cf0447c30b495723f16468a4c4cbcdcf3be3564274269ddd9e0b376d98ddd1cae3293eeeb7cfe1e0b937db9e60b56c5f6b1011a9fcd05529c46d7d5c226edea31829dd897465f3a4a2773cb88179324ccff6b0d4bf3dd95bbeb000db16f27cee591f949aa6f6df17cec9a63dc660f4aa79fed5512a98239b73fdff458e7c0e09b9d246e3f5681429affc2b1f7e2fcbd1141",
     'hex')
 
-test('bw6_761_ecadd', () => {
-    var output = Buffer.alloc(bw6_761.g1_bytes)
-    expect(bw6_761.ecadd(g1_2, g1_4, output)).toBe(true)
-    expect(output).toStrictEqual(g1_6)
-})
+describe('bw6_761', () => {
+    it('ecadd', () => {
+        var output = Buffer.alloc(bw6_761.g1_bytes)
+        expect(bw6_761.ecadd(g1_2, g1_4, output)).toBe(true)
+        expect(output).toEqual(g1_6)
+    })
 
-test('bw6_761_ecmul', () => {
-    var output = Buffer.alloc(bw6_761.g1_bytes)
-    expect(bw6_761.ecmul(g1_4, fr_minus_2, output)).toBe(true)
-    expect(output).toStrictEqual(g1_minus_8)
-})
+    it('ecmul', () => {
+        var output = Buffer.alloc(bw6_761.g1_bytes)
+        expect(bw6_761.ecmul(g1_4, fr_minus_2, output)).toBe(true)
+        expect(output).toEqual(g1_minus_8)
+    })
 
-test('bw6_761_ecpairing', () => {
-    var result = bw6_761.ecpairing([
-        g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_8,
-    ])
-    expect(result).toBe(true)
+    it('ecpairing', () => {
+        var result = bw6_761.ecpairing([
+            g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_8,
+        ])
+        expect(result).toBe(true)
 
-    expect(bw6_761.ecpairing([
-        g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_4
-    ])).toBe(false)
+        expect(bw6_761.ecpairing([
+            g1_6, g2_4, g1_3, g2_8, g1_4, g2_4, g1_minus_8, g2_4
+        ])).toBe(false)
+    })
 })
