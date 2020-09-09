@@ -1,15 +1,21 @@
 {
   "name": "libff.js",
   "version": "0.0.1",
-  "description": "Node.js module wrapping a subset of libff functionality",
+  "description": "Wrapper for a subset of libff functionality",
   "main": "dist/libff.js",
   "scripts": {
     "build": "tsc",
     "install": "./install_libff.sh",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
     "test": "jasmine-ts --config=jasmine.json"
   },
   "author": "Clearmatics Technologies Ltd",
   "license": "LGPL-3.0+",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clearmatics/libff.js.git"
+  },
   "dependencies": {
     "@saleae/ffi": "^3.0.2"
   },
