@@ -8,8 +8,8 @@
     "install": "./install_libff.sh",
     "test": "jasmine-ts --config=jasmine.json"
   },
-  "author": "",
-  "license": "",
+  "author": "Clearmatics Technologies Ltd",
+  "license": "LGPL-3.0+",
   "dependencies": {
     "@saleae/ffi": "^3.0.2"
   },
