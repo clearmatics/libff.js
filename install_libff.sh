@@ -7,7 +7,7 @@ echo "===== INSTALLING LIBFF-FFI ====="
 echo "================================"
 
 git submodule update --init --recursive
-mkdir -p dist
+mkdir -p bin
 
 pushd depends/libff
 
@@ -16,7 +16,7 @@ pushd depends/libff
 
     cmake -DWITH_PROCPS=OFF ..
     make -j 5 ff-ffi
-    rsync --update ffi/libff-ffi.* ../../../dist
+    rsync --update ffi/libff-ffi.* ../../../bin
 
   popd
 
