@@ -2,18 +2,23 @@ name: libff.js CI
 
 on: [push]
 
+env:
+  MACOS_BREW_PACKAGES: "pkg-config libomp"
+
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.x]
+        os: [ ubuntu-18.04, ubuntu-20.04, macos-10.15 ]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v2
-    - name: With Node.js ${{ matrix.node-version }}
+    - uses: actions/checkout@v1
+      with:
+        submodules: recursive
+    - name: ${{ matrix.os }} - node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
