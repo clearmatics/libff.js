@@ -42,8 +42,6 @@ export function ecmul(point: Buffer, scalar: Buffer, output: Buffer): boolean
     var functions = ffi.FFI.getFunctions()
     return functions.bw6_761_g1_mul(
         point, point.length, scalar, scalar.length, output, output.length)
-
-    // return true;
 }
 
 export function ecpairing(points: Buffer[]): boolean
