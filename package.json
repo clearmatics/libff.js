@@ -1,6 +1,6 @@
 {
   "name": "libff.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wrapper for a subset of libff functionality",
   "main": "dist/libff.js",
   "scripts": {
