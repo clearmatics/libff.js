@@ -1,19 +1,34 @@
-# `libff.js` - Wrapper around libff.js functionality
+# `libff.js` - Wrapper around libff
 
 ![libff.js CI](https://github.com/clearmatics/libff.js/workflows/libff.js%20CI/badge.svg)
 
-| This package is currently extremely minimal, with very limited coverage of the libff functionality. |
+| This package is currently extremely minimal, with very limited coverage of the libff library. |
 | --- |
 
 ## Dependencies
 
-The install will attempt to build the [libff library](https://github.com/clearmatics/libff).  This requires the following tools:
+1. The install will attempt to build the [libff library](https://github.com/clearmatics/libff). Hence, make sure that you have installed the following tools before proceeding:
 
 - CMake >=2.8
 - Recent gcc or clang C++ compilers
 - git
+- node < v10.23
+- npm > 6.9
 
 See the [libff repository](https://github.com/clearmatics/libff) for further details.
+
+2. Install the submodules:
+
+```console
+git submodule update --init --recursive
+```
+
+## Run the tests
+
+```console
+npm install
+npm run test
+```
 
 ## Example
 
