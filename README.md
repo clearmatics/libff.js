@@ -1,19 +1,34 @@
-# `libff.js` - Wrapper around libff.js functionality
+# `libff.js` - Wrapper around libff
 
 ![libff.js CI](https://github.com/clearmatics/libff.js/workflows/libff.js%20CI/badge.svg)
 
-| This package is currently extremely minimal, with very limited coverage of the libff functionality. |
+| This package is currently extremely minimal, with very limited coverage of the libff library. |
 | --- |
 
 ## Dependencies
 
-The install will attempt to build the [libff library](https://github.com/clearmatics/libff).  This requires the following tools:
+1. The install will attempt to build the [libff library](https://github.com/clearmatics/libff). Hence, make sure that you have installed the following tools before proceeding:
 
-- CMake >=2.8
+- CMake (>= 2.8)
 - Recent gcc or clang C++ compilers
 - git
+- node (<= 10.23)
+- npm (>= 6.9)
 
 See the [libff repository](https://github.com/clearmatics/libff) for further details.
+
+2. Install the submodules:
+
+```console
+git submodule update --init --recursive
+```
+
+## Run the tests
+
+```console
+npm install
+npm run test
+```
 
 ## Example
 
@@ -31,9 +46,9 @@ const b_g1 = Buffer.from(
     "009b512f473767b3e84f621c1efb9a875b0ae1d623dd0ac1fd29354688311902fcad849275945122751e5b564e8ffd4939174982282da32feb69c2fa8d9c32d92f8e3825f390bf75fc4a8554b2c1367f1a4d92ff40539b4bfc2cba0298b46a820081b87ff3a0887d2f892a8612e47d89b11140beaccdfc5f269fe046da6355ea4a954be341b294ff4ea27bc8926192867adde574fc5ee4310bc502c42f297601f172a930d1e62b8a05ce451ede1a5d4ea67f8ecd1c49ad47388257f60a7dc91a",
     'hex');
 
-const a_plus_b = Buffer.alloc(bw6_761.g1_bytes);
-if (!bw6_761.ecadd(a, b, a_plus_b)) {
+const a_plus_b_g1 = Buffer.alloc(bw6_761.g1_bytes);
+if (!bw6_761.ecadd(a_g1, b_g1, a_plus_b_g1)) {
     throw "Error in curve point addition";
 }
-console.log("a + b = " + a_plus_b.toString('hex'));
+console.log("a_g1 + b_g1 = " + a_plus_b_g1.toString('hex'));
 ```

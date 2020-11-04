@@ -8,6 +8,10 @@ const fr_minus_2 = Buffer.from(
     "12ab655e9a2ca55660b44d1e5c37b00159aa76fed00000010a117fffffffffff",
     'hex')
 
+const fr_invalid = Buffer.from(
+    "f2ab655e9a2ca55660b44d1e5c37b00159aa76fed00000010a117fffffffffff",
+    'hex')
+
 const g1_2 = Buffer.from(
     "00ed453141939e91056edb5a4b5452ed7e61f7f3dd2a4b7ee90e97c9a2301955880661656781dc90857aed6d6a41639000cfb0b9717bc8e5ae04601813171337ad99cdae42c561cae80b12f135c64479d6a23f5675ed5ca7e2dd5e8727d7c7ed",
     'hex')
@@ -48,6 +52,11 @@ describe('bls12_377', () => {
         var output = Buffer.alloc(bls12_377.g1_bytes)
         expect(bls12_377.ecmul(g1_4, fr_minus_2, output)).toBe(true)
         expect(output).toEqual(g1_minus_8)
+    })
+
+    it('ecmul_invalid_scalar', () => {
+        var output = Buffer.alloc(bls12_377.g1_bytes)
+        expect(bls12_377.ecmul(g1_4, fr_invalid, output)).toBe(false)
     })
 
     it('ecpairing', () => {

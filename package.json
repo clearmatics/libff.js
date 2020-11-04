@@ -1,11 +1,11 @@
 {
   "name": "libff.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wrapper for a subset of libff functionality",
   "main": "dist/libff.js",
   "scripts": {
     "build": "tsc",
-    "install": "./install_libff.sh",
+    "install": "./install_libff.sh ffi",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "test": "jasmine-ts --config=jasmine.json"
@@ -28,6 +28,7 @@
     "typescript": "^4.0.2"
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "install_libff.sh"
   ]
 }
