@@ -9,11 +9,11 @@
 
 1. The install will attempt to build the [libff library](https://github.com/clearmatics/libff). Hence, make sure that you have installed the following tools before proceeding:
 
-- CMake >=2.8
+- CMake (>= 2.8)
 - Recent gcc or clang C++ compilers
 - git
-- node < v10.23
-- npm > 6.9
+- node (<= 10.23)
+- npm (>= 6.9)
 
 See the [libff repository](https://github.com/clearmatics/libff) for further details.
 
