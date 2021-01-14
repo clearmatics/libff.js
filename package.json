@@ -11,7 +11,7 @@
     "test": "jasmine-ts --config=jasmine.json"
   },
   "author": "Clearmatics Technologies Ltd",
-  "license": "LGPL-3.0+",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/clearmatics/libff.js.git"
