@@ -1,6 +1,6 @@
 // Copyright (c) 2015-2021 Clearmatics Technologies Ltd
 //
-// SPDX-License-Identifier: LGPL-3.0+
+// SPDX-License-Identifier: MIT
 
 import * as bw6_761 from '../src/bw6_761'
 
