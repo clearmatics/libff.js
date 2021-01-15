@@ -13,7 +13,7 @@ export const g2_bytes = 192;
 (function() {
     var functions = ffi.FFI.getFunctions();
     if (!functions.bw6_761_init()) {
-        throw "failed to initialize bls12_377";
+        throw "failed to initialize bw6_761";
     }
 })();
 
@@ -21,7 +21,7 @@ export function ecadd(pointA: Buffer, pointB: Buffer, output: Buffer): boolean {
     if (pointA.length !== g1_bytes ||
         pointB.length !== g1_bytes ||
         output.length !== g1_bytes) {
-        console.log('bls12_761.ecadd: invalid buffer size');
+        console.log('bw6_761.ecadd: invalid buffer size');
         return false;
     }
 
@@ -35,7 +35,7 @@ export function ecmul(point: Buffer, scalar: Buffer, output: Buffer): boolean
     if (point.length !== g1_bytes ||
         scalar.length !== fr_bytes ||
         output.length !== g1_bytes) {
-        console.log('bls12_761.ecmul: invalid buffer size');
+        console.log('bw6_761.ecmul: invalid buffer size');
         return false;
     }
 
@@ -55,7 +55,7 @@ export function ecpairing(points: Buffer[]): boolean
         points[5].length !== g2_bytes ||
         points[6].length !== g1_bytes ||
         points[7].length !== g2_bytes) {
-        console.log('bls12_761.pairing: invalid buffer size');
+        console.log('bw6_761.pairing: invalid buffer size');
         return false;
     }
 
