@@ -1,6 +1,6 @@
-// Copyright (c) 2015-2020 Clearmatics Technologies Ltd
+// Copyright (c) 2015-2021 Clearmatics Technologies Ltd
 //
-// SPDX-License-Identifier: LGPL-3.0+
+// SPDX-License-Identifier: MIT
 
 var path = require('path')
 var ffi = require('@saleae/ffi')
