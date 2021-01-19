@@ -5,7 +5,8 @@
   "main": "dist/libff.js",
   "scripts": {
     "build": "tsc",
-    "install": "./install_libff.sh ffi",
+    "install": "./install_libff.sh ffi && npm run build",
+    "postinstall": "npm run build",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "test": "jasmine-ts --config=jasmine.json"
