@@ -30,6 +30,7 @@
   },
   "files": [
     "dist/**/*",
-    "install_libff.sh"
+    "install_libff.sh",
+    "depends/**/*"
   ]
 }

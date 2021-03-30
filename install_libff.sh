@@ -17,14 +17,16 @@ echo platform: ${platform}
 
 # If necessary, manually sync the libff repo at the correct version
 if ! [ -e depends/libff ] ; then
-    echo "depends/libff not present. downloading version: $VERSION"
-    mkdir -p depends
-    pushd depends
-        git clone -b $VERSION https://github.com/clearmatics/libff
-        pushd libff
-            git submodule update --init --recursive
-        popd
-    popd
+    echo "============================================="
+    echo "===== ERROR: depends/libff not present. ====="
+    echo "============================================="
+    # mkdir -p depends
+    # pushd depends
+    #     git clone -b $VERSION https://github.com/clearmatics/libff
+    #     pushd libff
+    #         git submodule update --init --recursive
+    #     popd
+    # popd
 fi
 
 # On macos, ensure openssl libraries can be found by cmake
