@@ -5,9 +5,8 @@
   "main": "dist/libff.js",
   "scripts": {
     "build": "tsc",
-    "install": "./install_libff.sh ffi && tsc",
-    "postinstall": "tsc",
-    "prepare": "tsc",
+    "install": "./install_libff.sh ffi",
+    "prepare": "npm run build",
     "prepublishOnly": "npm test",
     "test": "jasmine-ts --config=jasmine.json"
   },
@@ -18,7 +17,8 @@
     "url": "git+https://github.com/clearmatics/libff.js.git"
   },
   "dependencies": {
-    "@saleae/ffi": "^3.0.2"
+    "@saleae/ffi": "^3.0.2",
+    "tsc": "^1.20150623.0"
   },
   "devDependencies": {
     "@types/jasmine": "^3.5.14",
